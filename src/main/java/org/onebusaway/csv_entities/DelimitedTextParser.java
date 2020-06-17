@@ -131,9 +131,6 @@ public class DelimitedTextParser {
           break;
       }
     }
-    List<String> retro = new ArrayList<String>(tokens.size());
-    for (StringBuilder b : tokens)
-      retro.add(b.toString());
-    return retro;
+    return tokens.stream().map(StringBuilder::toString).collect(Collectors.toList());
   }
 }
